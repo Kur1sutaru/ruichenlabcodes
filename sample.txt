@@ -1,4 +1,4 @@
 $ cat sample.txt
 sample	cellranger	nreaction
-AMD1	/path/to/cellqc_test_data/AMD1	1
-AMD2	/path/to/cellqc_test_data/AMD2	1
+AMD1	/storage/chen/home/u247700/cellqc/cellqc_test_data/AMD1	1
+AMD2	/storage/chen/home/u247700/cellqc/cellqc_test_data/AMD2	1
