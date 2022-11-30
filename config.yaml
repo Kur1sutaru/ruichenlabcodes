@@ -1,0 +1,55 @@
+!/bin/bash
+SBATCH --nodes=1
+SBATCH --cpus-per-task=8
+SBATCH --time=02:00:00
+SBATCH --mem=128G
+SBATCH --mail-user=u247700@bcm.edu
+SBATCH --mail-type=begin
+SBATCH --mail-type=end
+SBATCH --error=JobName.%J.err
+SBATCH --output=JobName.%J.out
+
+cd $SLURM_SUBMIT_DIR
+
+#!/usr/bin/env bash
+# vim: set noexpandtab tabstop=2:
+
+source trapdebug
+outdir=$(mrrdir.sh)/test_data
+
+set -e
+
+
+sample=samples.txt
+config=config.yaml
+
+cat > "$sample" <<EOF
+sample	cellranger	nreaction
+AMD1	$outdir/cellqc_test_data/AMD1	1
+AMD2	$outdir/cellqc_test_data/AMD2	1
+EOF
+
+cat > "$config" <<EOF
+# samples with Cell Ranger output directories
+samples: $sample
+## configuration for dropkick
+dropkick:
+  skip: true
+  method: multiotsu
+  numthreads: 1
+## Filter cells by nCount, nFeature, and mito
+filterbycount:
+  mincount: 500
+  minfeature: 300
+  mito: 5
+## configuration for DoubletFinder
+doubletfinder:
+  findpK: false
+  numthreads: 5
+  pK: 0.005
+## configuration for scPred
+scpred:
+  skip: true
+  reference: $outdir/scPred_reference.rds
+  threshold: 0.9
+EOF
