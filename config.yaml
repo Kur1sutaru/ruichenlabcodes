@@ -23,5 +23,5 @@ doubletfinder:
 ## configuration for scPred
 scpred:
   skip: false
-  reference: /path/to/scPred_reference.rds
+  reference: /storage/chen/home/u247700/cellqc/scPred_reference.rds
   threshold: 0.9
