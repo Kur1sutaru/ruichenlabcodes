@@ -9,7 +9,7 @@ SBATCH --mail-type=end
 SBATCH --error=JobName.%J.err
 SBATCH --output=JobName.%J.out
 
-cd $SLURM_SUBMIT_DIR
+cd /storage/chen/home/u247700/cellqc
 
 #!/usr/bin/env bash
 # vim: set noexpandtab tabstop=2:
