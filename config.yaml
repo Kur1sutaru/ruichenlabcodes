@@ -1,4 +1,4 @@
-cat config.yaml
+$cat config.yaml
 # samples with Cell Ranger output directories
 samples: /storage/chen/home/u247700/cellqc/sample.txt
 
