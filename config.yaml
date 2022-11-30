@@ -1,6 +1,6 @@
 cat config.yaml
 # samples with Cell Ranger output directories
-samples: /path/to/samples.txt
+samples: /storage/chen/home/u247700/cellqc/sample.txt
 
 ## configuration for dropkick
 dropkick:
