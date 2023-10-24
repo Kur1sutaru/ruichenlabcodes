@@ -6,7 +6,7 @@ newPkg = reqPkg[!(reqPkg %in% installed.packages()[,"Package"])]
 if(length(newPkg)){install.packages(newPkg)}
 
 # If you are using h5ad file as input, run the code below as well
-# reticulate::py_install("anndata")
+reticulate::py_install("anndata")
 
 #To install shiny cell dependencies
 reqPkg = c("shiny", "shinyhelper", "data.table", "Matrix", "DT", "hdf5r", 
@@ -22,7 +22,7 @@ devtools::install_github("SGDDNB/ShinyCell")
 library(Seurat)
 library(ShinyCell)
 
-seu = readRDS("D:/baylor/TRIGEMINAL/b6tgnuintegrateddim20res01annotated.rds")
+seu = readRDS("C:/Users/Cristal/Downloads/Baylor/shinycellexample/example.rds")
 scConf = createConfig(seu)
 makeShinyApp(seu, scConf, gene.mapping = TRUE,
-             shiny.title = "TG Quick Start") 
+             shiny.title = "DRG mouse atlas") 
